@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import nodemailer from 'nodemailer'; // Import Nodemailer
+
 
 // Load environment variables
 dotenv.config();
@@ -17,6 +19,42 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add allowed methods
     allowedHeaders: ['Content-Type'], // Add allowed headers
 }));
+
+// Email Sending Route
+
+app.post('/api/send-email', async (req, res) => {
+    const { email, subject, message } = req.body;
+
+    if (!email || !subject || !message) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    const mailOptions = {
+        from: email,
+        to: process.env.EMAIL_USER, // Your receiving email
+        subject: subject,
+        text: message,
+    };
+    const transporter = nodemailer.createTransport({
+        service: 'gmail', // or your email provider
+        auth: {
+          user: process.env.EMAIL_USER, // your email address
+          pass: process.env.EMAIL_PASS,       // your email password or app-specific password
+        },
+      });
+
+    try {
+        await transporter.sendMail(mailOptions); // transporter is configured in your nodemailer setup
+        res.status(200).json({ message: 'Email sent successfully!' });
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({ error: 'Failed to send email.' });
+    }
+});
+
+
+
+
 
 // MongoDB Connection
 const mongoURI = process.env.MONGODB_URI;
