@@ -17,10 +17,10 @@ function ResumePreview() {
   // console.log('resumepreview', resumeInfo);
 
   return (
-   <div className=' rounded-lg border border-gray-300 p-3  '>
+   <div className=' rounded-lg border p-3 dark:bg-gray-400 dark:border-gray-400  dark:text-black'>
     <div  className='h-full p-2 border-t-[10px]'
       style={{
-        borderColor: resumeInfo?.themeColor ||resumeInfo?.attributes?.themeColor
+        borderColor: resumeInfo.themeColor 
       }}>
         <div >
       {/* Personal Detail */}

@@ -43,4 +43,3 @@ coverage/
 
 # Miscellaneous
 *.tgz
-.env

@@ -99,9 +99,10 @@ function Education({ enableNext }) {
                                 value={item.universityName}
                             />
                         </div>
-                        <div className='mb-2'>
+                        <div className='mb-2 dark:color-white'>
                             <label className='font-bold text-xs'>Start Date</label>
                             <Input
+                            className=''
                                 type='date'
                                 name='startDate'
                                 onChange={(e) => handleChange(e, index)}
@@ -136,7 +137,7 @@ function Education({ enableNext }) {
                         <div className='col-span-2'>
                             <label className='font-bold text-xs'>Description (Optional)</label>
                             <textarea
-                                className='w-full p-2 border border-gray-300 rounded-md'
+                                className='w-full p-2 border bg-background rounded-md'
                                 name='description'
                                 rows='4'
                                 onChange={(e) => handleChange(e, index)}

@@ -16,7 +16,7 @@ function EducationPreview({ resumeInfo }) {
     }
 }, [resumeInfo]);
   return (
-    <div className='my-6'>
+    <div className='my-6 '>
       <h2
         className='text-center font-bold text-sm mb-2'
         style={{

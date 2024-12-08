@@ -28,9 +28,9 @@ function ResumeCardItem({ resume, refreshData }) {
     const [loading, setLoading] = useState(false)
     const [openAlert, setOpenAlert] = useState(false);
 
-    const onMenuClick = (url) => {
-        navigation(url);
-    }
+    // const onMenuClick = (url) => {
+    //     navigation(url);
+    // }
 
     const onDelete = () => {
         setLoading(true)
@@ -47,21 +47,25 @@ function ResumeCardItem({ resume, refreshData }) {
         return title.length > length ? title.slice(0, length) + '...' : title;
     }
 
-    console.log('Resume Information:', resume);
+    
     return (
-        <div>
+        <div >
             <div className='hover:scale-105 
+            
               transition-all 
-              hover:shadow-md 
-              cursor-pointer'>
+              mx-2
+              cursor-pointer
+              w-[200px]
+              h-[300px]'
+              >
                 <Link to={'/dashboard/resume/' + resume._id + "/edit"}>
                     <div className=' py-14 border-t-8
               items-center 
               flex justify-center 
-              bg-gradient-to-b  from-pink-100 via-purple-200 to-blue-200 
-              mt-10 
-              h-[200px]
-              
+              bg-gradient-to-b  from-pink-100 via-blue-200 to-blue-200 
+              mt-5 
+           
+              border
               
                rounded-t-lg  
                

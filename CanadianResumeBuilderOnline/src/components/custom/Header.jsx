@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { Link } from 'react-router-dom';
 import { UserButton, useUser } from '@clerk/clerk-react';
+import DarkModeToggle from './DarkModeToggle';
 
 function Header() {
     const { user, isSignedIn } = useUser();
@@ -18,17 +19,20 @@ function Header() {
                 />
             </Link>
             {isSignedIn ? (
-                <div className='flex gap-2 items-center'>
+                <div className='flex gap-8 items-center'>
+                    <DarkModeToggle />
                     <Link to='/dashboard'>
                         <Button variant="outline">Dashboard</Button>
                     </Link>
-                    <UserButton />
+                    <UserButton />  
                 </div>
-            ) : (
+            ) : (<div className='flex gap-8 items-center'>
+               <DarkModeToggle />
                 <Link to='/auth/sign-in'>
                     <Button>Get Started</Button>
                 </Link>
-            )}
+                  
+                  </div>)}
         </div>
     );
 }

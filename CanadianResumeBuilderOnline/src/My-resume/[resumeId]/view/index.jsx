@@ -7,7 +7,7 @@ import GlobalApi from "./../../../../service/GlobalApi";
 import { useParams } from "react-router-dom";
 import { RWebShare } from "react-web-share";
 import { DownloadIcon, Share2Icon } from "lucide-react";
-import './index.css';
+
 
 function ViewResume() {
   const { resumeId } = useParams();

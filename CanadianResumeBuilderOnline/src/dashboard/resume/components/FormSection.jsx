@@ -23,7 +23,7 @@ function FormSection() {
    
   return (
 
-    <div className=' rounded-lg border border-gray-300 p-3  '>
+    <div className=' rounded-lg border p-3  '>
         {/* Personal detail */}
        
         <div className='flex justify-between items-center'>
