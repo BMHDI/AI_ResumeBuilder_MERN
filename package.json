@@ -8,7 +8,7 @@
   "deploy": "npm run backend:install && npm run backend:start && npm run frontend:build",
   "backend:install": "cd Server && npm install",
   "backend:start": "cd Server && npm start",
-  "frontend:build": "cd CnadianResumeBuilderOnline && npm install && npm run build"
+  "frontend:build": "cd CanadianResumeBuilderOnline && npm install && npm run build"
 },
   "repository": {
     "type": "git",
