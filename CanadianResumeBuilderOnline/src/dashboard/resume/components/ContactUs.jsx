@@ -17,33 +17,30 @@ const ContactUs = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
+
         setIsSubmitting(true);
         setResponseMessage('');
+        setErrorMessage('');
 
         try {
-            const response = await fetch('http://localhost:3000/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
+            const response = await SendEmail(formData); // Using SendEmail
+            if (response.status === 200) {
                 setResponseMessage('Email sent successfully!');
                 setFormData({ email: '', subject: '', message: '' }); // Reset form
             } else {
-                const errorData = await response.json();
-                setResponseMessage(errorData.error || 'Failed to send email.');
+                setErrorMessage(response.data.error || 'Failed to send email.');
             }
         } catch (error) {
-            console.error('Error:', error);
-            setResponseMessage('Something went wrong. Please try again.');
+            console.error('Error sending email:', error);
+            setErrorMessage(
+                error.response?.data?.error || 'Something went wrong. Please try again.'
+            );
         } finally {
             setIsSubmitting(false);
         }
     };
-
+    
     return (
         <div className=" mt-20 py-8 rounded-xl  border lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 className="mb-10 text-xl tracking-tight font-extrabold text-center  dark:text-white">

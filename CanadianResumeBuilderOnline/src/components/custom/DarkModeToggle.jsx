@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Switch } from "@/components/ui/switch"
+import { CiLight } from "react-icons/ci";
+import { MdOutlineDarkMode } from "react-icons/md";
+
 
 function DarkModeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,7 +34,7 @@ function DarkModeToggle() {
   return (
     <div className="flex items-center gap-2">
       <span className="text-sm text-gray-800 dark:text-gray-200">
-        {isDarkMode ? 'Dark Mode' : 'Light Mode'}
+        {isDarkMode ? <CiLight size={20} style={{right: '-32px', position: 'relative'}} /> : <MdOutlineDarkMode size={20} style={{zIndex: 1, right: '-50px', position: 'relative'}} />}
       </span>
       <Switch
         checked={isDarkMode}

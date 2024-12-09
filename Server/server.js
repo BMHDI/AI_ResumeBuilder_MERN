@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: 'https://a1resumebuilder.netlify.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add allowed methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'], // Add allowed headers
 }));
 

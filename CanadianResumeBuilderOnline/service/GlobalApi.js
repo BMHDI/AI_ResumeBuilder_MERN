@@ -20,6 +20,8 @@ const GetUserResumes = (userEmail) =>
         params: { userEmail: userEmail } // Ensure 'userEmail' is the correct query parameter
     });
 
+    const SendEmail = (data) => 
+        axiosClient.post('/send-email', data); // Make a POST request to '/send-email'
 // Function to update resume details
 const UpdateResumeDetail = (id, data) => 
     axiosClient.put(`/user-resumes/${id}`, data);
@@ -38,6 +40,7 @@ const GetAllResumes = () =>
 
 // Export all functions
 export default {
+    SendEmail,
     CreateNewResume,
     GetUserResumes,
     UpdateResumeDetail,
