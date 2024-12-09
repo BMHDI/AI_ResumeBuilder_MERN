@@ -5,7 +5,7 @@
   "main": "index.js",
 "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
-  "deploy": "npm run frontend:install && npm run backend:install && npm run frontend:build && npm run backend:start",
+  "deploy": "npm run backend:install && npm run backend:start",
   "backend:install": "cd Server && npm install",
   "backend:start": "cd Server && npm start",
   "frontend:install": "cd CanadianResumeBuilderOnline && npm install vite  && npm install",
